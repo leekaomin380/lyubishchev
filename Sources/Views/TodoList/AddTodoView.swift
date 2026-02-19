@@ -9,7 +9,7 @@ struct AddTodoView: View {
                 .foregroundStyle(.blue)
                 .font(.title3)
 
-            TextField("Add a task", text: $todoVM.newTaskTitle)
+            TextField("添加任务", text: $todoVM.newTaskTitle)
                 .textFieldStyle(.plain)
                 .font(.body)
                 .onSubmit {

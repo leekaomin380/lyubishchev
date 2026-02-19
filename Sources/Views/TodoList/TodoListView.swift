@@ -25,14 +25,14 @@ struct TodoListView: View {
         VStack(spacing: 0) {
             if pendingItems.isEmpty && completedItems.isEmpty {
                 ContentUnavailableView {
-                    Label("No Tasks", systemImage: "checklist")
+                    Label("暂无任务", systemImage: "checklist")
                 } description: {
-                    Text("Add a task below to get started.")
+                    Text("在下方添加一个任务开始使用。")
                 }
             } else {
                 List {
                     if !pendingItems.isEmpty {
-                        Section("To Do — \(pendingItems.count)") {
+                        Section("待办 — \(pendingItems.count)") {
                             ForEach(pendingItems) { item in
                                 TodoRowView(
                                     item: item,
@@ -45,7 +45,7 @@ struct TodoListView: View {
                     }
 
                     if !completedItems.isEmpty {
-                        Section("Completed — \(completedItems.count)") {
+                        Section("已完成 — \(completedItems.count)") {
                             ForEach(completedItems) { item in
                                 TodoRowView(
                                     item: item,
@@ -60,6 +60,6 @@ struct TodoListView: View {
 
             AddTodoView(todoVM: todoVM)
         }
-        .navigationTitle(todoVM.selectedCategory?.name ?? "All Tasks")
+        .navigationTitle(todoVM.selectedCategory?.name ?? "全部任务")
     }
 }

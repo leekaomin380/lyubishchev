@@ -2,9 +2,9 @@ import Foundation
 import SwiftData
 
 enum StatisticsPeriod: String, CaseIterable {
-    case day = "Today"
-    case week = "This Week"
-    case month = "This Month"
+    case day = "今日"
+    case week = "本周"
+    case month = "本月"
 }
 
 struct CategoryStat: Identifiable {
@@ -79,7 +79,7 @@ final class StatisticsViewModel {
         // Category stats
         var catMap: [String: (colorHex: String, duration: TimeInterval)] = [:]
         for record in records {
-            let catName = record.todo?.category?.name ?? "Uncategorized"
+            let catName = record.todo?.category?.name ?? "未分类"
             let catColor = record.todo?.category?.colorHex ?? "#888888"
             let existing = catMap[catName] ?? (colorHex: catColor, duration: 0)
             catMap[catName] = (colorHex: existing.colorHex, duration: existing.duration + record.duration)

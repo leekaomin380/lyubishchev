@@ -16,8 +16,8 @@ struct SidebarView: View {
                 todoVM.selectedCategory = categories.first { $0.id == id }
             }
         )) {
-            Section("Lists") {
-                Label("All Tasks", systemImage: "tray.fill")
+            Section("列表") {
+                Label("全部任务", systemImage: "tray.fill")
                     .tag(nil as UUID?)
                     .onTapGesture {
                         todoVM.selectedCategory = nil
@@ -33,7 +33,7 @@ struct SidebarView: View {
                     }
                     .tag(category.id as UUID?)
                     .contextMenu {
-                        Button("Delete", role: .destructive) {
+                        Button("删除", role: .destructive) {
                             todoVM.deleteCategory(category)
                         }
                     }
@@ -45,14 +45,14 @@ struct SidebarView: View {
             VStack(spacing: 8) {
                 if isAddingCategory {
                     HStack {
-                        TextField("Category name", text: $newCategoryName)
+                        TextField("分类名称", text: $newCategoryName)
                             .textFieldStyle(.roundedBorder)
                             .onSubmit {
                                 todoVM.addCategory(name: newCategoryName, colorHex: newCategoryColor)
                                 newCategoryName = ""
                                 isAddingCategory = false
                             }
-                        Button("Add") {
+                        Button("添加") {
                             todoVM.addCategory(name: newCategoryName, colorHex: newCategoryColor)
                             newCategoryName = ""
                             isAddingCategory = false
@@ -65,7 +65,7 @@ struct SidebarView: View {
                 Button {
                     isAddingCategory.toggle()
                 } label: {
-                    Label(isAddingCategory ? "Cancel" : "New List", systemImage: isAddingCategory ? "xmark" : "plus")
+                    Label(isAddingCategory ? "取消" : "新建列表", systemImage: isAddingCategory ? "xmark" : "plus")
                 }
                 .buttonStyle(.plain)
                 .padding(.bottom, 8)

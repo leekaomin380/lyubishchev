@@ -11,7 +11,7 @@ struct MenuBarView: View {
                     Circle()
                         .fill(.red)
                         .frame(width: 8, height: 8)
-                    Text("Focusing")
+                    Text("专注中")
                         .font(.caption.bold())
                         .foregroundStyle(.red)
                 }
@@ -26,23 +26,23 @@ struct MenuBarView: View {
 
                 Divider()
 
-                Button("Complete Task") {
+                Button("完成任务") {
                     focusVM.completeFocus()
                 }
 
-                Button("Cancel") {
+                Button("取消") {
                     focusVM.cancelFocus()
                 }
             } else {
                 Text("Lyubishchev")
                     .font(.headline)
-                Text("No active task")
+                Text("暂无进行中的任务")
                     .foregroundStyle(.secondary)
             }
 
             Divider()
 
-            Button("Quit") {
+            Button("退出") {
                 NSApplication.shared.terminate(nil)
             }
             .keyboardShortcut("q")

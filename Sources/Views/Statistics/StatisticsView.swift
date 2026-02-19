@@ -8,7 +8,7 @@ struct StatisticsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 // Period picker
-                Picker("Period", selection: $statsVM.selectedPeriod) {
+                Picker("时间范围", selection: $statsVM.selectedPeriod) {
                     ForEach(StatisticsPeriod.allCases, id: \.self) { period in
                         Text(period.rawValue).tag(period)
                     }
@@ -21,15 +21,15 @@ struct StatisticsView: View {
 
                 // Summary cards
                 HStack(spacing: 16) {
-                    StatCard(title: "Total Time", value: statsVM.formattedTotalDuration, icon: "clock.fill")
-                    StatCard(title: "Completed", value: "\(statsVM.completedCount)", icon: "checkmark.circle.fill")
+                    StatCard(title: "总时长", value: statsVM.formattedTotalDuration, icon: "clock.fill")
+                    StatCard(title: "已完成", value: "\(statsVM.completedCount)", icon: "checkmark.circle.fill")
                 }
                 .padding(.horizontal)
 
                 // Category breakdown
                 if !statsVM.categoryStats.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("By Category")
+                        Text("按分类")
                             .font(.headline)
                             .padding(.horizontal)
 
@@ -52,7 +52,7 @@ struct StatisticsView: View {
                 // Daily breakdown
                 if !statsVM.dailyStats.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Daily")
+                        Text("每日")
                             .font(.headline)
                             .padding(.horizontal)
 
@@ -83,7 +83,7 @@ struct StatisticsView: View {
             }
             .padding(.vertical)
         }
-        .navigationTitle("Statistics")
+        .navigationTitle("统计")
         .onAppear { statsVM.refresh() }
     }
 }

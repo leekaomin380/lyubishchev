@@ -32,7 +32,7 @@ struct FocusView: View {
                     .padding(.horizontal, 40)
 
                 // Start time
-                Text("Started at \(focusVM.startTimeString)")
+                Text("开始于 \(focusVM.startTimeString)")
                     .font(.system(size: 16, weight: .medium, design: .monospaced))
                     .foregroundStyle(.white.opacity(0.6))
 
@@ -49,7 +49,7 @@ struct FocusView: View {
                     Button {
                         focusVM.cancelFocus()
                     } label: {
-                        Text("Cancel")
+                        Text("取消")
                             .font(.headline)
                             .foregroundStyle(.white.opacity(0.8))
                             .frame(width: 120, height: 44)
@@ -60,7 +60,7 @@ struct FocusView: View {
                     Button {
                         focusVM.completeFocus()
                     } label: {
-                        Text("Complete")
+                        Text("完成")
                             .font(.headline)
                             .foregroundStyle(.white)
                             .frame(width: 160, height: 50)

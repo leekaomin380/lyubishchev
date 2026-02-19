@@ -13,7 +13,7 @@ struct ReportEntry: Identifiable {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         let start = formatter.string(from: startTime)
-        let end = endTime.map { formatter.string(from: $0) } ?? "ongoing"
+        let end = endTime.map { formatter.string(from: $0) } ?? "进行中"
         return "\(start) - \(end)"
     }
 
@@ -41,7 +41,7 @@ final class ReportViewModel {
 
     var reportText: String {
         var lines: [String] = []
-        lines.append("Daily Report — \(formattedDate)")
+        lines.append("日报 — \(formattedDate)")
         lines.append(String(repeating: "=", count: 40))
         lines.append("")
 
@@ -51,7 +51,7 @@ final class ReportViewModel {
 
         lines.append("")
         lines.append(String(repeating: "-", count: 40))
-        lines.append("Total: \(formattedTotalDuration)")
+        lines.append("合计: \(formattedTotalDuration)")
         return lines.joined(separator: "\n")
     }
 
@@ -71,8 +71,8 @@ final class ReportViewModel {
 
         entries = records.map { record in
             ReportEntry(
-                taskTitle: record.todo?.title ?? "Unknown",
-                categoryName: record.todo?.category?.name ?? "Uncategorized",
+                taskTitle: record.todo?.title ?? "未知任务",
+                categoryName: record.todo?.category?.name ?? "未分类",
                 startTime: record.startTime,
                 endTime: record.endTime,
                 duration: record.duration

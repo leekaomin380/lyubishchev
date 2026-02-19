@@ -32,7 +32,7 @@ struct OnAirIndicator: View {
                 .shadow(color: .red, radius: isGlowing ? 15 : 8)
 
             // ON AIR text
-            Text("ON AIR")
+            Text("专注中")
                 .font(.system(size: 11, weight: .black, design: .monospaced))
                 .foregroundStyle(.red)
                 .offset(y: 42)

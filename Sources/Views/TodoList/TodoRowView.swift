@@ -29,7 +29,7 @@ struct TodoRowView: View {
                             .foregroundStyle(category.color)
                     }
                     if item.isCompleted, let completedAt = item.completedAt {
-                        Text("Done \(completedAt, style: .relative) ago")
+                        Text("完成于 \(completedAt, style: .relative)前")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -52,17 +52,17 @@ struct TodoRowView: View {
                         .foregroundStyle(.red)
                 }
                 .buttonStyle(.plain)
-                .help("Start focus on this task")
+                .help("开始专注此任务")
             }
         }
         .padding(.vertical, 4)
         .contextMenu {
             if item.isCompleted {
-                Button("Mark as Incomplete") {
+                Button("标记为未完成") {
                     onToggleComplete?()
                 }
             }
-            Button("Delete", role: .destructive) {
+            Button("删除", role: .destructive) {
                 onDelete?()
             }
         }

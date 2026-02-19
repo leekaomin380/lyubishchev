@@ -2,9 +2,9 @@ import SwiftUI
 import SwiftData
 
 enum NavigationTab: String, Hashable {
-    case tasks = "Tasks"
-    case statistics = "Statistics"
-    case report = "Daily Report"
+    case tasks = "任务"
+    case statistics = "统计"
+    case report = "日报"
 }
 
 struct ContentView: View {
@@ -26,19 +26,19 @@ struct ContentView: View {
                     // Navigation tabs at bottom of sidebar
                     VStack(spacing: 4) {
                         SidebarButton(
-                            title: "Tasks",
+                            title: "任务",
                             icon: "checklist",
                             isSelected: selectedTab == .tasks
                         ) { selectedTab = .tasks }
 
                         SidebarButton(
-                            title: "Statistics",
+                            title: "统计",
                             icon: "chart.bar.fill",
                             isSelected: selectedTab == .statistics
                         ) { selectedTab = .statistics }
 
                         SidebarButton(
-                            title: "Daily Report",
+                            title: "日报",
                             icon: "doc.text.fill",
                             isSelected: selectedTab == .report
                         ) { selectedTab = .report }

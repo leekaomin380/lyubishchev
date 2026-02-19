@@ -29,9 +29,9 @@ struct DailyReportView: View {
 
             if reportVM.entries.isEmpty {
                 ContentUnavailableView {
-                    Label("No Records", systemImage: "doc.text")
+                    Label("暂无记录", systemImage: "doc.text")
                 } description: {
-                    Text("No time records for this day.")
+                    Text("当天没有时间记录。")
                 }
             } else {
                 List {
@@ -58,7 +58,7 @@ struct DailyReportView: View {
 
                     Section {
                         HStack {
-                            Text("Total")
+                            Text("合计")
                                 .font(.headline)
                             Spacer()
                             Text(reportVM.formattedTotalDuration)
@@ -77,12 +77,12 @@ struct DailyReportView: View {
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.setString(reportVM.reportText, forType: .string)
                 } label: {
-                    Label("Copy Report", systemImage: "doc.on.doc")
+                    Label("复制日报", systemImage: "doc.on.doc")
                 }
                 .padding()
             }
         }
-        .navigationTitle("Daily Report")
+        .navigationTitle("日报")
         .onAppear { reportVM.refresh() }
     }
 }
