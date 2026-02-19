@@ -44,6 +44,7 @@ mkdir -p "${APP_BUNDLE}/Contents/Resources"
 
 cp "${SCRIPT_DIR}/.build/debug/${APP_NAME}" "${APP_BUNDLE}/Contents/MacOS/${APP_NAME}"
 cp "${SCRIPT_DIR}/Info.plist" "${APP_BUNDLE}/Contents/"
+cp "${SCRIPT_DIR}/AppIcon.icns" "${APP_BUNDLE}/Contents/Resources/" 2>/dev/null || true
 
 echo "==> Done: ${APP_BUNDLE}"
 echo "    Run with: open ${APP_BUNDLE}"

@@ -8,3 +8,5 @@ DerivedData/
 *.app/
 *.dmg
 dmg_temp/
+icon.iconset/
+icon_1024.png
